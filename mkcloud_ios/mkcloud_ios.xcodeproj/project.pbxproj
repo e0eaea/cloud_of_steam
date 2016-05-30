@@ -1,0 +1,370 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A3D07C981CE049D300D21D4F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D07C971CE049D300D21D4F /* main.m */; };
+		A3D07C9B1CE049D300D21D4F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D07C9A1CE049D300D21D4F /* AppDelegate.m */; };
+		A3D07C9E1CE049D300D21D4F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D07C9D1CE049D300D21D4F /* ViewController.m */; };
+		A3D07CA11CE049D300D21D4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3D07C9F1CE049D300D21D4F /* Main.storyboard */; };
+		A3D07CA41CE049D300D21D4F /* mkcloud_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A3D07CA21CE049D300D21D4F /* mkcloud_ios.xcdatamodeld */; };
+		A3D07CA61CE049D300D21D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3D07CA51CE049D300D21D4F /* Assets.xcassets */; };
+		A3D07CA91CE049D300D21D4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3D07CA71CE049D300D21D4F /* LaunchScreen.storyboard */; };
+		A3D07CD71CE04D4400D21D4F /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D07CD61CE04D4400D21D4F /* KakaoOpenSDK.framework */; };
+		A3D07CD91CE04F8200D21D4F /* KakaoLogin.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D07CD81CE04F8200D21D4F /* KakaoLogin.png */; };
+		A3D07CDC1CE0507400D21D4F /* Common_modules.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D07CDB1CE0507400D21D4F /* Common_modules.m */; };
+		A3D07CE21CE059B800D21D4F /* no_picture.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D07CE01CE059B800D21D4F /* no_picture.png */; };
+		A3D07CE31CE059B800D21D4F /* picture_modify.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D07CE11CE059B800D21D4F /* picture_modify.png */; };
+		A3D07CE61CE05ADE00D21D4F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D07CE51CE05ADE00D21D4F /* MainViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A3D07C931CE049D300D21D4F /* mkcloud_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mkcloud_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3D07C971CE049D300D21D4F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A3D07C991CE049D300D21D4F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A3D07C9A1CE049D300D21D4F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A3D07C9C1CE049D300D21D4F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A3D07C9D1CE049D300D21D4F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A3D07CA01CE049D300D21D4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A3D07CA31CE049D300D21D4F /* mkcloud_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mkcloud_ios.xcdatamodel; sourceTree = "<group>"; };
+		A3D07CA51CE049D300D21D4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A3D07CA81CE049D300D21D4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A3D07CAA1CE049D300D21D4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3D07CD61CE04D4400D21D4F /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
+		A3D07CD81CE04F8200D21D4F /* KakaoLogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KakaoLogin.png; sourceTree = "<group>"; };
+		A3D07CDA1CE0507400D21D4F /* Common_modules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common_modules.h; sourceTree = "<group>"; };
+		A3D07CDB1CE0507400D21D4F /* Common_modules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common_modules.m; sourceTree = "<group>"; };
+		A3D07CDD1CE050D500D21D4F /* Server_address.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Server_address.h; sourceTree = "<group>"; };
+		A3D07CE01CE059B800D21D4F /* no_picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_picture.png; sourceTree = "<group>"; };
+		A3D07CE11CE059B800D21D4F /* picture_modify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture_modify.png; sourceTree = "<group>"; };
+		A3D07CE41CE05ADE00D21D4F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		A3D07CE51CE05ADE00D21D4F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A3D07C901CE049D300D21D4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3D07CD71CE04D4400D21D4F /* KakaoOpenSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A3D07C8A1CE049D300D21D4F = {
+			isa = PBXGroup;
+			children = (
+				A3D07C951CE049D300D21D4F /* mkcloud_ios */,
+				A3D07C941CE049D300D21D4F /* Products */,
+				A3D07CD61CE04D4400D21D4F /* KakaoOpenSDK.framework */,
+			);
+			sourceTree = "<group>";
+		};
+		A3D07C941CE049D300D21D4F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3D07C931CE049D300D21D4F /* mkcloud_ios.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A3D07C951CE049D300D21D4F /* mkcloud_ios */ = {
+			isa = PBXGroup;
+			children = (
+				A3D07CDD1CE050D500D21D4F /* Server_address.h */,
+				A3D07CD81CE04F8200D21D4F /* KakaoLogin.png */,
+				A3D07CE01CE059B800D21D4F /* no_picture.png */,
+				A3D07CE11CE059B800D21D4F /* picture_modify.png */,
+				A3D07CDA1CE0507400D21D4F /* Common_modules.h */,
+				A3D07CDB1CE0507400D21D4F /* Common_modules.m */,
+				A3D07C991CE049D300D21D4F /* AppDelegate.h */,
+				A3D07C9A1CE049D300D21D4F /* AppDelegate.m */,
+				A3D07C9F1CE049D300D21D4F /* Main.storyboard */,
+				A3D07CA51CE049D300D21D4F /* Assets.xcassets */,
+				A3D07CA71CE049D300D21D4F /* LaunchScreen.storyboard */,
+				A3D07CAA1CE049D300D21D4F /* Info.plist */,
+				A3D07CA21CE049D300D21D4F /* mkcloud_ios.xcdatamodeld */,
+				A3D07C9C1CE049D300D21D4F /* ViewController.h */,
+				A3D07C9D1CE049D300D21D4F /* ViewController.m */,
+				A3D07CE41CE05ADE00D21D4F /* MainViewController.h */,
+				A3D07CE51CE05ADE00D21D4F /* MainViewController.m */,
+				A3D07C961CE049D300D21D4F /* Supporting Files */,
+			);
+			path = mkcloud_ios;
+			sourceTree = "<group>";
+		};
+		A3D07C961CE049D300D21D4F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A3D07C971CE049D300D21D4F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A3D07C921CE049D300D21D4F /* mkcloud_ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3D07CAD1CE049D300D21D4F /* Build configuration list for PBXNativeTarget "mkcloud_ios" */;
+			buildPhases = (
+				A3D07C8F1CE049D300D21D4F /* Sources */,
+				A3D07C901CE049D300D21D4F /* Frameworks */,
+				A3D07C911CE049D300D21D4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mkcloud_ios;
+			productName = mkcloud_ios;
+			productReference = A3D07C931CE049D300D21D4F /* mkcloud_ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A3D07C8B1CE049D300D21D4F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = KMK;
+				TargetAttributes = {
+					A3D07C921CE049D300D21D4F = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = B6WULSG6KC;
+					};
+				};
+			};
+			buildConfigurationList = A3D07C8E1CE049D300D21D4F /* Build configuration list for PBXProject "mkcloud_ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A3D07C8A1CE049D300D21D4F;
+			productRefGroup = A3D07C941CE049D300D21D4F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A3D07C921CE049D300D21D4F /* mkcloud_ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A3D07C911CE049D300D21D4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3D07CE31CE059B800D21D4F /* picture_modify.png in Resources */,
+				A3D07CA91CE049D300D21D4F /* LaunchScreen.storyboard in Resources */,
+				A3D07CD91CE04F8200D21D4F /* KakaoLogin.png in Resources */,
+				A3D07CA61CE049D300D21D4F /* Assets.xcassets in Resources */,
+				A3D07CE21CE059B800D21D4F /* no_picture.png in Resources */,
+				A3D07CA11CE049D300D21D4F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A3D07C8F1CE049D300D21D4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3D07C9E1CE049D300D21D4F /* ViewController.m in Sources */,
+				A3D07CE61CE05ADE00D21D4F /* MainViewController.m in Sources */,
+				A3D07CDC1CE0507400D21D4F /* Common_modules.m in Sources */,
+				A3D07CA41CE049D300D21D4F /* mkcloud_ios.xcdatamodeld in Sources */,
+				A3D07C9B1CE049D300D21D4F /* AppDelegate.m in Sources */,
+				A3D07C981CE049D300D21D4F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A3D07C9F1CE049D300D21D4F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3D07CA01CE049D300D21D4F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A3D07CA71CE049D300D21D4F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3D07CA81CE049D300D21D4F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A3D07CAB1CE049D300D21D4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A3D07CAC1CE049D300D21D4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A3D07CAE1CE049D300D21D4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = mkcloud_ios/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = minkyu.mkcloud;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A3D07CAF1CE049D300D21D4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = mkcloud_ios/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = minkyu.mkcloud;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A3D07C8E1CE049D300D21D4F /* Build configuration list for PBXProject "mkcloud_ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3D07CAB1CE049D300D21D4F /* Debug */,
+				A3D07CAC1CE049D300D21D4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3D07CAD1CE049D300D21D4F /* Build configuration list for PBXNativeTarget "mkcloud_ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3D07CAE1CE049D300D21D4F /* Debug */,
+				A3D07CAF1CE049D300D21D4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A3D07CA21CE049D300D21D4F /* mkcloud_ios.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A3D07CA31CE049D300D21D4F /* mkcloud_ios.xcdatamodel */,
+			);
+			currentVersion = A3D07CA31CE049D300D21D4F /* mkcloud_ios.xcdatamodel */;
+			path = mkcloud_ios.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A3D07C8B1CE049D300D21D4F /* Project object */;
+}

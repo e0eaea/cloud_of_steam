@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdH-z4-GbD">
+                                <rect key="frame" x="39" y="589" width="296" height="58"/>
+                                <state key="normal" backgroundImage="KakaoLogin.png"/>
+                                <connections>
+                                    <action selector="kakao_login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B7H-ll-Zw1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.71323332530000005" green="0.8469129997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="sdH-z4-GbD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gon-ij-FU3"/>
+                            <constraint firstItem="sdH-z4-GbD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="569" id="YC1-4p-JMb"/>
+                            <constraint firstAttribute="bottom" secondItem="sdH-z4-GbD" secondAttribute="bottom" constant="20" symbolic="YES" id="jG5-HM-e8w"/>
+                            <constraint firstItem="sdH-z4-GbD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="23" id="sBE-oO-j2i"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="256.5" y="386.5"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="Mq3-pc-KnV">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OoR-do-h5V" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kz1-UG-asI"/>
+                        <viewControllerLayoutGuide type="bottom" id="HGY-Aa-vpF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4d7-Ff-Kte">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="no_picture.png" translatesAutoresizingMaskIntoConstraints="NO" id="xnN-Nh-TXc">
+                                <rect key="frame" x="47" y="138" width="280" height="323"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfg-Su-cqa" userLabel="modify_button">
+                                <rect key="frame" x="251" y="390" width="67" height="58"/>
+                                <state key="normal" backgroundImage="picture_modify.png"/>
+                                <connections>
+                                    <action selector="picture_modify_click:" destination="OoR-do-h5V" eventType="touchUpInside" id="niP-Xy-aOA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SsI-Tu-263" userLabel="transfer_button">
+                                <rect key="frame" x="130" y="494" width="114" height="30"/>
+                                <color key="backgroundColor" red="0.98692044625816044" green="1" blue="0.99820183886787051" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="서버에 전송"/>
+                                <connections>
+                                    <action selector="transfer_to_server:" destination="OoR-do-h5V" eventType="touchUpInside" id="glr-9I-0Jx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageview" destination="xnN-Nh-TXc" id="FA1-a5-9Q2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lhs-GS-t1O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="721.5" y="386.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="KakaoLogin.png" width="800" height="122"/>
+        <image name="no_picture.png" width="996" height="635"/>
+        <image name="picture_modify.png" width="131" height="131"/>
+    </resources>
+</document>
