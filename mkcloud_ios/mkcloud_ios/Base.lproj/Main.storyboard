@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -71,12 +70,48 @@
                                     <action selector="transfer_to_server:" destination="OoR-do-h5V" eventType="touchUpInside" id="glr-9I-0Jx"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhF-Y9-tqq">
+                                <rect key="frame" x="47" y="80" width="190" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMV-2X-Unw">
+                                <rect key="frame" x="251" y="75" width="67" height="30"/>
+                                <state key="normal" title="날짜선택"/>
+                                <connections>
+                                    <action selector="date_button_tapped:" destination="OoR-do-h5V" eventType="touchUpInside" id="lEm-Qg-xaF"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XaA-11-1t7">
+                                <rect key="frame" x="0.0" y="680" width="375" height="261"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="m2Z-LT-b1b">
+                                        <rect key="frame" x="0.0" y="54" width="375" height="207"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="486883457.349406">
+                                            <!--2016-06-06 05:24:17 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxO-ui-oN3">
+                                        <rect key="frame" x="314" y="16" width="53" height="30"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="date_picker_done:" destination="OoR-do-h5V" eventType="touchUpInside" id="8aQ-6m-qYg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="date_picker" destination="m2Z-LT-b1b" id="g1g-09-9OE"/>
+                        <outlet property="date_picker_view" destination="XaA-11-1t7" id="jZZ-PU-d7a"/>
+                        <outlet property="date_select_button" destination="WMV-2X-Unw" id="FIR-HP-b5c"/>
                         <outlet property="imageview" destination="xnN-Nh-TXc" id="FA1-a5-9Q2"/>
+                        <outlet property="time_label" destination="bhF-Y9-tqq" id="TUn-4m-qKl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lhs-GS-t1O" userLabel="First Responder" sceneMemberID="firstResponder"/>

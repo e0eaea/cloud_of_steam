@@ -9,7 +9,7 @@
 #ifndef server_address_h
 #define server_address_h
 
-#define card_image_upload @"http://52.79.181.12:3000/upload"
+#define card_image_upload @"http://52.78.1.207:3000/upload"
 #define POST_BODY_BOURDARY "------WebKitFormBoundaryQGvWeNAiOE4g2VM5--" 
 
 #endif /* server_address_h */

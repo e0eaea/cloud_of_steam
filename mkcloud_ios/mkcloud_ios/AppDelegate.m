@@ -217,10 +217,13 @@
     
    
     //  json
-    [dataForm appendData:[[NSString stringWithFormat:@"--%s\r\n", POST_BODY_BOURDARY] dataUsingEncoding:NSUTF8StringEncoding]];
-    [dataForm appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"UserData\" \r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-    [dataForm  appendData:[[NSString stringWithFormat:@"%@", jsonString] dataUsingEncoding:NSUTF8StringEncoding]];
-    [dataForm  appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [dataForm appendData:[[NSString stringWithFormat:@"--%s\r\n",POST_BODY_BOURDARY] dataUsingEncoding:NSUTF8StringEncoding]];
+    [dataForm appendData:[@"Content-Disposition: form-data; name=\"json\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [dataForm appendData:[@"Content-Type: application/json; charset=UTF-8\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [dataForm appendData:[@"Content-Transfer-Encoding: 8bit\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [dataForm appendData:[[NSString stringWithFormat:@"%@\r\n", jsonString] dataUsingEncoding:NSUTF8StringEncoding]];
+    
     
     // close form
     [dataForm appendData:[[NSString stringWithFormat:@"--%s--\r\n",POST_BODY_BOURDARY] dataUsingEncoding:NSUTF8StringEncoding]];
