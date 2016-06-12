@@ -68,17 +68,19 @@ router.post('/picture', upload.single('uploadFile'), function (req, res, next) {
 // upload.single('var') : var 에는 file name 을 적어주어야 한다.
 router.post('/aa', upload.single('uploadFile'), function (req, res, next) {
 
-  var userName='KMK';
-  var due_date='2016-06-10 15:43:00';
-  var filename='user_data.image_name.mp4';
+  var userName=req.body.keyName.id;
+  var due_date=req.body.keyName.date;
+  var filename=req.body.keyName.image_name;
+
+  console.log();
 
   var tmp_path = req.file.path;                                             // 원래 파일 경로
   var target_path = 'upload/' + Date.now() + "_" + filename;   // 새로 저장할 파일 경로
 
   //var src = fs.createReadStream(tmp_path);        // 원래 파일을 스트림으로 읽기
  // var dest = fs.createWriteStream();   // 새로 저장할 파일을 스트림으로 쓰기
-
-
+ 
+ 
  var body = fs.createReadStream(tmp_path);
  var s3obj = new AWS.S3({params: {Bucket: 'mkcloud',Key: userName+'/' +filename}});
  s3obj.upload({Body: body}).
@@ -86,8 +88,19 @@ router.post('/aa', upload.single('uploadFile'), function (req, res, next) {
   send(function(err, data) {
   var params  = { TableName:'mkcloud-dynamo',
       Item:{  id:userName, url:data.Location, due_date:due_date  }};
+
+      var resObj = {
+          server_url: data.Location ,
+          status: "success"
+        };
+
    db.put(params, function(err,data) {
    console.log('업로드성공');
+   
+        console.log("리스폰스 보냄");
+        res.writeHead(200);
+        res.end(JSON.stringify(resObj));
+
   });
   console.log(err, data) });
 
@@ -99,17 +112,16 @@ router.post('/aa', upload.single('uploadFile'), function (req, res, next) {
       if(err){
         console.log(err);
       } else{
-        res.redirect('/upload');
-      }
+          console.log("리쿼스트 받아옴");
+       }
     });
   });
 
   // 에러 났을 때 에러 페이지 렌더링
   body.on('error', function (err) {
     res.render('error');
-
-
   });
+
 });
 
 module.exports = router;

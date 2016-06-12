@@ -11,6 +11,7 @@
 #import "My_Info.h"
 #import "Size_Define.h"
 
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -23,7 +24,7 @@
 - (NSURL *)applicationDocumentsDirectory;
 
 - (void) uploadImageLegacy:(UIImage *)image json:(NSString*)jsonString;
-- (void) uploadVideo:(NSURL *)video_url json:(NSString*)jsonString;
+
 
 - (My_Info *)getMyInfo;
 - (void) saveData:(NSDictionary *)data ;

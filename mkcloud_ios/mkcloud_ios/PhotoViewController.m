@@ -147,6 +147,67 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"사진삭제"
+                                      message:@"확인을 누르시면 서버에서 사라집니다."
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+        UIAlertAction* yesButton = [UIAlertAction
+                                    actionWithTitle:@"확인"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action)
+                                    {
+                                        
+                                        Photo *photo=[_tableData objectAtIndex:indexPath.row];
+                                        
+                                        [_myInfo removeMy_photoObject:photo];
+                                        
+                                        [_tableData removeObjectAtIndex:indexPath.row];
+                                        
+                                        NSError *error;
+                                        // here's where the actual save happens, and if it doesn't we print something out to the console
+                                        if (![_myInfo.managedObjectContext save:&error])
+                                        {
+                                            NSLog(@"Problem saving: %@", [error localizedDescription]);
+                                        }
+                                        
+                                        NSLog(@"카드삭제");
+                                        
+                                        
+                                        [_tableview deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                                        
+                                    }];
+        
+        [alert addAction:yesButton];
+        
+        
+        UIAlertAction* noButton = [UIAlertAction
+                                   actionWithTitle:@"취소"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action)
+                                   {
+                                       
+                                       
+                                       
+                                   }];
+        
+        
+        [alert addAction:noButton];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        
+    } else {
+        NSLog(@"Unhandled editing style! %ld", (long)editingStyle);
+    }
+    
+}
+
+
 
 - (IBAction)photo_add_click:(id)sender {
   

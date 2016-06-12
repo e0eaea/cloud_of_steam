@@ -15,6 +15,7 @@
 #import <AVKit/AVKit.h>
 #import <KakaoOpenSDK/KakaoOpenSDK.h>
 #import "AppDelegate.h"
+#import "AFNetworking.h"
 
 
 
@@ -26,8 +27,12 @@
 @property (strong, nonatomic) IBOutlet UIDatePicker *date_picker;
 @property (strong, nonatomic) IBOutlet UIView *date_picker_view;
 @property (strong, nonatomic) IBOutlet UIImageView *image_preview;
+@property (strong, nonatomic) IBOutlet UIProgressView *progress_view;
 @property (strong, nonatomic) My_Info* myInfo;
 @property (strong, nonatomic) Video* video;
+@property (strong, nonatomic) IBOutlet UIButton *done_to_server;
+
+@property (strong, nonatomic) IBOutlet UILabel *delete_label;
 
 @end
 
@@ -159,6 +164,69 @@
 }
 
 
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"동영상삭제"
+                                      message:@"확인을 누르시면 서버에서 사라집니다."
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+        UIAlertAction* yesButton = [UIAlertAction
+                                    actionWithTitle:@"확인"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action)
+                                    {
+                                        
+                                        Video *video=[_tableData objectAtIndex:indexPath.row];
+                                        
+                                        [_myInfo removeMy_videoObject:video];
+                                        
+                                        [_tableData removeObjectAtIndex:indexPath.row];
+                                        
+                                        NSError *error;
+                                        // here's where the actual save happens, and if it doesn't we print something out to the console
+                                        if (![_myInfo.managedObjectContext save:&error])
+                                        {
+                                            NSLog(@"Problem saving: %@", [error localizedDescription]);
+                                        }
+                                        
+                                        NSLog(@"카드삭제");
+                                        
+                                        
+                                        [_tableview deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                                        
+                                    }];
+        
+        [alert addAction:yesButton];
+        
+        
+        UIAlertAction* noButton = [UIAlertAction
+                                   actionWithTitle:@"취소"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action)
+                                   {
+                                       
+                                       
+                                       
+                                   }];
+        
+        
+        [alert addAction:noButton];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        
+    } else {
+        NSLog(@"Unhandled editing style! %ld", (long)editingStyle);
+    }
+    
+}
+
+
+
 - (IBAction)video_add_click:(id)sender {
     
     _video = (Video *)[NSEntityDescription insertNewObjectForEntityForName:@"VIdeo" inManagedObjectContext:_managedObjectContext];
@@ -206,6 +274,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         if(success)
         {
             _video.my_url= tmp_name;
+            _video.server_url=[NSString stringWithFormat:@"%@",videoURL];
         }
             
          AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
@@ -220,27 +289,30 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         NSData *imageData    = UIImagePNGRepresentation(FrameImage);
         _video.thumnail_image=imageData;
 
+   
     
+
     
-    [[[UIApplication sharedApplication] delegate] performSelector:@selector(uploadVideo:json:) withObject:videoURL withObject:@""];
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    
     
     
     
     NSLog(@"나와라");
     [self show_datepicker];
     
+  
+    
 }
 
 - (void) show_datepicker
 {
-    
     dispatch_async(dispatch_get_main_queue(), ^{
         CGRect moveFrame= _date_picker_view.frame;
         moveFrame.origin.y = self.view.frame.size.height-_date_picker_view.frame.size.height-40;
         _date_picker_view.frame=moveFrame;
+        [_delete_label setHidden:NO];
+        [_progress_view setHidden:YES];
         
         
     });
@@ -251,6 +323,77 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 (UIImagePickerController *)picker
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+
+- (void) uploadVideo:(NSURL *)video_url para:(NSDictionary *)para
+{
+    
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:para, @"keyName", nil];
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:@"http://52.78.1.207:3000/upload/aa" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileURL:video_url name:@"uploadFile" fileName:@"filename.mov" mimeType:@"video/quicktime" error:nil];
+        
+        
+    } error:nil];
+    
+    NSLog(@"비디오전송 시도!");
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    
+    NSURLSessionUploadTask *uploadTask;
+    uploadTask = [manager
+                  uploadTaskWithStreamedRequest:request
+                  progress:^(NSProgress * _Nonnull uploadProgress) {
+                      // This is not called back on the main queue.
+                      // You are responsible for dispatching to the main queue for UI updates
+                      dispatch_async(dispatch_get_main_queue(), ^{
+                          //Update the progress view
+                          
+                           [self.progress_view setProgress:uploadProgress.fractionCompleted];
+                         
+
+                      });
+                  }
+                  completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+                      if (error) {
+                          NSLog(@"Error: %@", error);
+                      } else {
+                          NSLog(@"%@ 구분한다 %@", response, responseObject);
+                         
+                          NSDictionary *diction = (NSDictionary *)responseObject;
+                          NSLog(@"서버 url만 뽑는다 %@",[diction objectForKey:@"server_url"]);
+                          
+                          _video.server_url=[diction objectForKey:@"server_url"];
+                          [_myInfo addMy_videoObject:_video];
+                          
+                          
+                          NSError *error;
+                          // here's where the actual save happens, and if it doesn't we print something out to the console
+                          if (![_myInfo.managedObjectContext save:&error])
+                          {
+                              NSLog(@"Problem saving: %@", [error localizedDescription]);
+                          }
+                          
+
+                          
+                          
+                          [UIView animateWithDuration:0.2
+                                           animations:^{
+                                               
+                                               CGRect moveFrame= _date_picker_view.frame;
+                                               moveFrame.origin.y = self.view.frame.size.height;
+                                               _date_picker_view.frame=moveFrame;
+                                           }
+                                           completion:^(BOOL finished){
+                                               [self.tabBarController.tabBar setHidden:NO];
+                                               [_tableData addObject:_video];
+                                               [_tableview reloadData];
+                                           }];
+                          
+                      }
+                  }];
+    
+    [uploadTask resume];
     
 }
 
@@ -268,30 +411,14 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSString *due_date=[self calculate_due_date:hours minutes:minutes];
     NSLog(@"만료시간 %@",due_date);
     
-    [_myInfo addMy_videoObject:_video];
+    NSArray *dictionKeys = @[@"id", @"date", @"image_name"];
+    NSArray *dictionVals = @[@"KMK", due_date,_video.my_url];
+    NSDictionary *client_data = [NSDictionary dictionaryWithObjects:dictionVals forKeys:dictionKeys];
     
-    NSError *error;
-    // here's where the actual save happens, and if it doesn't we print something out to the console
-    if (![_myInfo.managedObjectContext save:&error])
-    {
-        NSLog(@"Problem saving: %@", [error localizedDescription]);
-    }
+    [_delete_label setHidden:YES];
+    [_progress_view setHidden:NO];
     
-    
-    
-    [UIView animateWithDuration:0.2
-                     animations:^{
-                         
-                         CGRect moveFrame= _date_picker_view.frame;
-                         moveFrame.origin.y = self.view.frame.size.height;
-                         _date_picker_view.frame=moveFrame;
-                     }
-                     completion:^(BOOL finished){
-                         [self.tabBarController.tabBar setHidden:NO];
-                         [_tableData addObject:_video];
-                         [_tableview reloadData];
-                     }];
-    
+    [self uploadVideo:[NSURL URLWithString:_video.server_url] para:client_data];
     
 }
 
@@ -345,7 +472,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 - (IBAction)send_kakao:(id)sender {
     
-    KakaoTalkLinkObject *label= [KakaoTalkLinkObject createLabel:@"http://www.naver.com"];
+    KakaoTalkLinkObject *label= [KakaoTalkLinkObject createLabel:_video.server_url];
     [KOAppCall openKakaoTalkAppLink:@[label]];
 }
 - (IBAction)video_play:(id)sender {

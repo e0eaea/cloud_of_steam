@@ -27,6 +27,7 @@
 		A35EEAA81D0D451A0043EDA6 /* CardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A35EEAA61D0D451A0043EDA6 /* CardTableViewCell.m */; };
 		A35EEAA91D0D451A0043EDA6 /* CardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A35EEAA71D0D451A0043EDA6 /* CardTableViewCell.xib */; };
 		A35EEAAB1D0D45210043EDA6 /* cardName.png in Resources */ = {isa = PBXBuildFile; fileRef = A35EEAAA1D0D45210043EDA6 /* cardName.png */; };
+		A35EEAB01D0D968D0043EDA6 /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A35EEAAF1D0D968D0043EDA6 /* libAFNetworking.a */; };
 		A3D07C981CE049D300D21D4F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D07C971CE049D300D21D4F /* main.m */; };
 		A3D07C9B1CE049D300D21D4F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D07C9A1CE049D300D21D4F /* AppDelegate.m */; };
 		A3D07C9E1CE049D300D21D4F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D07C9D1CE049D300D21D4F /* ViewController.m */; };
@@ -74,6 +75,7 @@
 		A35EEAA71D0D451A0043EDA6 /* CardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CardTableViewCell.xib; path = mkcloud_ios/CardTableViewCell.xib; sourceTree = "<group>"; };
 		A35EEAAA1D0D45210043EDA6 /* cardName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cardName.png; path = mkcloud_ios/cardName.png; sourceTree = "<group>"; };
 		A35EEAAC1D0D452C0043EDA6 /* Size_Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Size_Define.h; sourceTree = "<group>"; };
+		A35EEAAF1D0D968D0043EDA6 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "../../../Library/Developer/Xcode/DerivedData/mkcloud_ios-aujibikqeodvijbirjahfqozguai/Build/Products/Debug-iphoneos/AFNetworking/libAFNetworking.a"; sourceTree = "<group>"; };
 		A3D07C931CE049D300D21D4F /* mkcloud_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mkcloud_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D07C971CE049D300D21D4F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A3D07C991CE049D300D21D4F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A35EEAB01D0D968D0043EDA6 /* libAFNetworking.a in Frameworks */,
 				A35EEA2F1D0D43DE0043EDA6 /* KakaoOpenSDK.framework in Frameworks */,
 				D14BF05748259C6A1D339D3B /* libPods-mkcloud_ios.a in Frameworks */,
 			);
@@ -122,6 +125,7 @@
 		A08F4099FADD039C90BBCA95 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A35EEAAF1D0D968D0043EDA6 /* libAFNetworking.a */,
 				A3D07CD61CE04D4400D21D4F /* KakaoOpenSDK.framework */,
 				43EA8972C35F640FD175FF53 /* libPods-mkcloud_ios.a */,
 			);
