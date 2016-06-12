@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15A284" minimumToolsVersion="Automatic">
-    <entity name="Cloud" syncable="YES">
-        <attribute name="due_date" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="kinds" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="My_Info" representedClassName="My_Info" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="my_photo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="my_info" inverseEntity="Photo" syncable="YES"/>
+        <relationship name="my_video" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VIdeo" inverseName="my_info" inverseEntity="VIdeo" syncable="YES"/>
+    </entity>
+    <entity name="Photo" representedClassName="Photo" syncable="YES">
+        <attribute name="due_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="my_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="server_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumnail_image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="my_info" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="My_Info" inverseName="my_photo" inverseEntity="My_Info" syncable="YES"/>
+    </entity>
+    <entity name="VIdeo" representedClassName="Video" syncable="YES">
+        <attribute name="due_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="my_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="server_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumnail_image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="my_info" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="My_Info" inverseName="my_video" inverseEntity="My_Info" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Cloud" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="Photo" positionX="-936" positionY="-1476" width="128" height="118"/>
+        <element name="VIdeo" positionX="-938" positionY="-1324" width="128" height="118"/>
+        <element name="My_Info" positionX="-1233" positionY="-1384" width="128" height="88"/>
     </elements>
 </model>

@@ -37,12 +37,283 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="256.5" y="386.5"/>
+            <point key="canvasLocation" x="-476.5" y="-227.5"/>
+        </scene>
+        <!--사진-->
+        <scene sceneID="Res-BB-nuZ">
+            <objects>
+                <navigationController id="5Be-Sl-MEv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="사진" image="Stack of Photos.png" id="qas-dw-S05"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Dhi-aH-ddc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="EbJ-P6-8E0" kind="relationship" relationship="rootViewController" id="QlX-4L-6ng"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bl2-eI-evs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="652.5" y="-571.5"/>
+        </scene>
+        <!--사진 목록-->
+        <scene sceneID="fcd-Fe-f0D">
+            <objects>
+                <viewController id="EbJ-P6-8E0" customClass="PhotoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ngx-Nm-qSi"/>
+                        <viewControllerLayoutGuide type="bottom" id="9U4-cW-pFA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gwl-HI-VgQ">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VV2-QD-6Xu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="EbJ-P6-8E0" id="fbi-cc-xQ3"/>
+                                    <outlet property="delegate" destination="EbJ-P6-8E0" id="fbc-9e-5tC"/>
+                                </connections>
+                            </tableView>
+                            <view alpha="0.97999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x2t-6z-XKZ" userLabel="showview">
+                                <rect key="frame" x="20" y="600" width="335" height="450"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfW-Ke-KtC">
+                                        <rect key="frame" x="198" y="15" width="117" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <state key="normal" title="카카오톡 전송">
+                                            <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="send_kakao:" destination="EbJ-P6-8E0" eventType="touchUpInside" id="Jjh-a6-piy"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5b5-Il-fev">
+                                        <rect key="frame" x="21" y="70" width="294" height="352"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jW2-TX-FJV">
+                                        <rect key="frame" x="21" y="15" width="46" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <state key="normal" title="취소">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancel:" destination="EbJ-P6-8E0" eventType="touchUpInside" id="6qc-50-IQg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R8w-AQ-obP">
+                                <rect key="frame" x="0.0" y="600" width="375" height="261"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="pM2-Ha-PpL">
+                                        <rect key="frame" x="0.0" y="54" width="375" height="207"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="486883457.349406">
+                                            <!--2016-06-06 05:24:17 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PN-1J-42y">
+                                        <rect key="frame" x="314" y="16" width="53" height="30"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="date_picker_done:" destination="OoR-do-h5V" eventType="touchUpInside" id="oaq-Y6-y7s"/>
+                                            <action selector="date_picker_done:" destination="EbJ-P6-8E0" eventType="touchUpInside" id="r9G-xY-lPR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="사진 목록" id="bWz-br-z0Q">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9YI-24-El5">
+                            <connections>
+                                <action selector="photo_add_click:" destination="EbJ-P6-8E0" id="Npt-bE-2t9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="date_picker" destination="pM2-Ha-PpL" id="hE1-Le-fK3"/>
+                        <outlet property="date_picker_view" destination="R8w-AQ-obP" id="Sqs-Xz-NVF"/>
+                        <outlet property="image_preview" destination="5b5-Il-fev" id="zJn-v1-3cw"/>
+                        <outlet property="showview" destination="x2t-6z-XKZ" id="5gW-RA-47c"/>
+                        <outlet property="tableview" destination="VV2-QD-6Xu" id="vBo-a0-p4r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C0R-jc-cUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1140.5" y="-563.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="KbN-Qk-UXN">
+            <objects>
+                <tabBarController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fcF-uq-epF" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="X2A-gJ-60p">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="5Be-Sl-MEv" kind="relationship" relationship="viewControllers" id="Twx-Jn-fEL"/>
+                        <segue destination="JO3-CO-EYj" kind="relationship" relationship="viewControllers" id="Qkh-JF-fra"/>
+                        <segue destination="rRd-DJ-pxh" kind="relationship" relationship="viewControllers" id="CAm-R3-sFi"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FML-02-VZF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74.5" y="-227.5"/>
+        </scene>
+        <!--비디오-->
+        <scene sceneID="H4e-6U-QFJ">
+            <objects>
+                <navigationController id="JO3-CO-EYj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="비디오" image="Video Playlist.png" id="jcF-3V-zBR"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="iur-tB-oyg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Qpf-KA-PQp" kind="relationship" relationship="rootViewController" id="grb-D7-nMh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1AI-1G-GdB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="652.5" y="204.5"/>
+        </scene>
+        <!--비디오 목록-->
+        <scene sceneID="HHf-VR-Xwc">
+            <objects>
+                <viewController id="Qpf-KA-PQp" customClass="VideoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Fe-Tf-Wn4"/>
+                        <viewControllerLayoutGuide type="bottom" id="qDe-Hk-lth"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZoK-Iy-bFa">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qv0-nH-nO8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Qpf-KA-PQp" id="eXx-L6-Rfa"/>
+                                    <outlet property="delegate" destination="Qpf-KA-PQp" id="VNQ-FA-IE7"/>
+                                </connections>
+                            </tableView>
+                            <view alpha="0.97999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VD9-pe-UfT" userLabel="showview">
+                                <rect key="frame" x="20" y="600" width="335" height="450"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bN6-Ap-y33">
+                                        <rect key="frame" x="201" y="15" width="114" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <state key="normal" title="카카오톡 전송">
+                                            <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="send_kakao:" destination="Qpf-KA-PQp" eventType="touchUpInside" id="Qw4-oU-N9t"/>
+                                            <action selector="send_kakao:" destination="EbJ-P6-8E0" eventType="touchUpInside" id="Ve3-AA-8gc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4h-aV-c5Y">
+                                        <rect key="frame" x="21" y="15" width="46" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <state key="normal" title="취소">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancel:" destination="Qpf-KA-PQp" eventType="touchUpInside" id="VDO-W1-Eub"/>
+                                            <action selector="cancel:" destination="EbJ-P6-8E0" eventType="touchUpInside" id="igW-9D-jgN"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="alm-iq-C9n">
+                                        <rect key="frame" x="20" y="70" width="294" height="352"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABv-as-DlQ">
+                                        <rect key="frame" x="117" y="196" width="100" height="100"/>
+                                        <state key="normal" backgroundImage="Play.png"/>
+                                        <connections>
+                                            <action selector="video_play:" destination="Qpf-KA-PQp" eventType="touchUpInside" id="uKv-EI-Die"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CVc-gf-eGW">
+                                <rect key="frame" x="0.0" y="600" width="375" height="261"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="3XB-CB-LYL">
+                                        <rect key="frame" x="0.0" y="54" width="375" height="207"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="486883457.349406">
+                                            <!--2016-06-06 05:24:17 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpb-wf-VLe">
+                                        <rect key="frame" x="314" y="16" width="53" height="30"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="date_picker_done:" destination="OoR-do-h5V" eventType="touchUpInside" id="WUQ-or-AFI"/>
+                                            <action selector="date_picker_done:" destination="Qpf-KA-PQp" eventType="touchUpInside" id="bmM-Ye-hyr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="비디오 목록" id="kSH-qF-Lag">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="y2T-Rc-WwM">
+                            <connections>
+                                <action selector="video_add_click:" destination="Qpf-KA-PQp" id="DlK-fW-i4V"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="date_picker" destination="3XB-CB-LYL" id="l6X-QY-m8s"/>
+                        <outlet property="date_picker_view" destination="CVc-gf-eGW" id="9hs-mc-77f"/>
+                        <outlet property="image_preview" destination="alm-iq-C9n" id="HS4-iU-Vij"/>
+                        <outlet property="showview" destination="VD9-pe-UfT" id="Zhz-UQ-sWr"/>
+                        <outlet property="tableview" destination="Qv0-nH-nO8" id="ZRb-1i-3Z8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sYL-Bf-6Wr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1127.5" y="256.5"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Mq3-pc-KnV">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OoR-do-h5V" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController id="OoR-do-h5V" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kz1-UG-asI"/>
                         <viewControllerLayoutGuide type="bottom" id="HGY-Aa-vpF"/>
@@ -59,15 +330,6 @@
                                 <state key="normal" backgroundImage="picture_modify.png"/>
                                 <connections>
                                     <action selector="picture_modify_click:" destination="OoR-do-h5V" eventType="touchUpInside" id="niP-Xy-aOA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SsI-Tu-263" userLabel="transfer_button">
-                                <rect key="frame" x="130" y="494" width="114" height="30"/>
-                                <color key="backgroundColor" red="0.98692044625816044" green="1" blue="0.99820183886787051" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="서버에 전송"/>
-                                <connections>
-                                    <action selector="transfer_to_server:" destination="OoR-do-h5V" eventType="touchUpInside" id="glr-9I-0Jx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhF-Y9-tqq">
@@ -102,6 +364,29 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ZB-rb-o8u">
+                                <rect key="frame" x="56" y="469" width="66" height="30"/>
+                                <state key="normal" title="비디오선택"/>
+                                <connections>
+                                    <action selector="video_click:" destination="OoR-do-h5V" eventType="touchUpInside" id="vYh-Tf-IOf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNt-Tj-GI5">
+                                <rect key="frame" x="146" y="469" width="83" height="30"/>
+                                <state key="normal" title="비디오전송"/>
+                                <connections>
+                                    <action selector="video_send_to_server:" destination="OoR-do-h5V" eventType="touchUpInside" id="Vht-UP-mW2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SsI-Tu-263" userLabel="transfer_button">
+                                <rect key="frame" x="130" y="523" width="114" height="30"/>
+                                <color key="backgroundColor" red="0.98692044625816044" green="1" blue="0.99820183886787051" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="서버에 전송"/>
+                                <connections>
+                                    <action selector="transfer_to_server:" destination="OoR-do-h5V" eventType="touchUpInside" id="glr-9I-0Jx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -116,11 +401,51 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lhs-GS-t1O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="721.5" y="386.5"/>
+            <point key="canvasLocation" x="-278.5" y="840.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pUL-nv-Sce">
+            <objects>
+                <navigationController id="rRd-DJ-pxh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="more" id="qQI-EZ-BJn"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ezr-da-HyF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sps-qd-HVp" kind="relationship" relationship="rootViewController" id="Zik-Km-ah7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KFf-rh-avc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="595.5" y="1123.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="haN-4v-481">
+            <objects>
+                <viewController id="sps-qd-HVp" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zhp-9R-bWr"/>
+                        <viewControllerLayoutGuide type="bottom" id="pVR-ka-K4U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BTV-fH-R42">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PEk-ng-Eq1"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zDo-Qb-bj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1103.5" y="1107.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="KakaoLogin.png" width="800" height="122"/>
+        <image name="Play.png" width="286" height="286"/>
+        <image name="Stack of Photos.png" width="32" height="32"/>
+        <image name="Video Playlist.png" width="32" height="32"/>
         <image name="no_picture.png" width="996" height="635"/>
         <image name="picture_modify.png" width="131" height="131"/>
     </resources>

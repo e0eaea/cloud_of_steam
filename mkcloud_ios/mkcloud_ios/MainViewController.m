@@ -11,6 +11,9 @@
 #import "AppDelegate.h"
 #import <Photos/Photos.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import <KakaoOpenSDK/KakaoOpenSDK.h>
+#import <AVKit/AVKit.h>
+@import MediaPlayer;
 
 @interface MainViewController ()<UIImagePickerControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *imageview;
@@ -53,12 +56,74 @@
                        animated:YES completion:nil];
     
 }
+- (IBAction)video_send_to_server:(id)sender {
+    
+    
+    
+}
+
+
+- (IBAction)video_click:(id)sender {
+   
+    
+   // KakaoTalkLinkObject *label= [KakaoTalkLinkObject createLabel:@"http://www.naver.com"];
+   // [KOAppCall openKakaoTalkAppLink:@[label]];
+
+
+   
+    
+    UIImagePickerController *videoPicker = [[UIImagePickerController alloc] init];
+    videoPicker.delegate = (id)self;
+    
+    videoPicker.modalPresentationStyle = UIModalPresentationCurrentContext;
+    // This code ensures only videos are shown to the end user
+    videoPicker.mediaTypes = @[(NSString*)kUTTypeMovie, (NSString*)kUTTypeAVIMovie, (NSString*)kUTTypeVideo, (NSString*)kUTTypeMPEG4];
+    
+    videoPicker.videoQuality = UIImagePickerControllerQualityTypeHigh;
+    videoPicker.hidesBottomBarWhenPushed=YES;
+    
+    [self.tabBarController.tabBar setHidden:YES];
+    
+    [self presentViewController:videoPicker animated:YES completion:nil];
+
+
+}
 
 
 -(void)imagePickerController:
 (UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    
+    UIImage *image = [info valueForKey:UIImagePickerControllerEditedImage];
+    
+    if(image==NULL)
+    {   NSLog(@"비디오");
+        
+        NSURL *videoURL = [info objectForKey:UIImagePickerControllerMediaURL];
+        NSLog(@"VideoURL = %@", videoURL);
+        
+        [[[UIApplication sharedApplication] delegate] performSelector:@selector(uploadVideo:json:) withObject:videoURL withObject:@""];
+        
+         [self dismissViewControllerAnimated:YES completion:nil];
+        
+        
+        
+        /*
+        AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
+        AVAssetImageGenerator *generateImg = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+        NSError *error = NULL;
+        CMTime time = CMTimeMake(1, 65);
+        CGImageRef refImg = [generateImg copyCGImageAtTime:time actualTime:NULL error:&error];
+        NSLog(@"error==%@, Refimage==%@", error, refImg);
+        
+        UIImage *FrameImage= [[UIImage alloc] initWithCGImage:refImg];
+         */
+        
+       // [_video_image setBackgroundImage:FrameImage forState:UIControlStateNormal];
+    }
+    else
+    {
     // Code here to work with media
     UIImage *image = [info valueForKey:UIImagePickerControllerEditedImage];
     NSURL *imageFileURL = [info objectForKey:UIImagePickerControllerReferenceURL];
@@ -67,13 +132,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     [_imageview setImage:image];
    
      [self dismissViewControllerAnimated:YES completion:nil];
+    }
 
-        
+
+    
 }
     
-    
-
-
 
 -(void)imagePickerControllerDidCancel:
 (UIImagePickerController *)picker
@@ -122,7 +186,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
     NSLog(@"서버요청완료!!");
     
-    
 }
 - (IBAction)date_button_tapped:(id)sender {
     
@@ -157,17 +220,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSLog(@"만료시간 %@",_due_date);
 
     
-    
-    [UIView animateWithDuration:0.2
-                     animations:^{
-                         
-                         CGRect moveFrame= _date_picker_view.frame;
-                         moveFrame.origin.y = self.view.frame.size.height;
-                         _date_picker_view.frame=moveFrame;
-                     }
-                     completion:^(BOOL finished){
-                         
-                     }];
     
 }
 

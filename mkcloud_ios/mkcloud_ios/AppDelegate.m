@@ -8,9 +8,13 @@
 
 #import "AppDelegate.h"
 #import <KakaoOpenSDK/KakaoOpenSDK.h>
+#import "AFNetworking.h"
+
+
 #import "Server_address.h"
 
 @interface AppDelegate ()
+@property(strong,nonatomic) My_Info * myinfo;
 
 @end
 
@@ -21,6 +25,18 @@
     // Override point for customization after application launch.
     
      KOSession *session = [KOSession sharedSession];
+    
+    if([session isOpen])
+    {
+        NSLog(@"이미 열려있음!!");
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController* vc = [sb instantiateViewControllerWithIdentifier:@"MainViewController"];
+        [_window setRootViewController:vc];
+        
+        
+    }
+  
+    
     return YES;
 }
 
@@ -129,6 +145,55 @@
 }
 
 
+- (My_Info *)getMy_Info {
+    
+    NSLog(@"here");
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"My_Info" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    if([fetchedObjects count]==0)
+        return NULL;
+    else
+    { My_Info *My_Info=[fetchedObjects objectAtIndex:0];
+        return My_Info;
+        
+    }
+    
+}
+
+- (void) saveData:(NSDictionary *)data {     //UserInfo Save
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"My_Info" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    
+    if([fetchedObjects count]==0)
+        _myinfo = (My_Info *)[NSEntityDescription insertNewObjectForEntityForName:@"My_Info" inManagedObjectContext:_managedObjectContext];
+    
+    else
+        _myinfo=(My_Info*)[fetchedObjects objectAtIndex:0];
+    
+    
+    _myinfo.id=[data valueForKey:@"id"];
+    
+    
+    // here's where the actual save happens, and if it doesn't we print something out to the console
+    if (![_managedObjectContext save:&error])
+    {
+        NSLog(@"Problem saving: %@", [error localizedDescription]);
+    }
+    NSLog(@"New User : %@", _myinfo);
+    
+    
+}
 
 
 - (void)connectToServer:(NSString*)jsonString url:(NSString *)urlString {
@@ -161,9 +226,9 @@
                                          if ([data length] > 0 && connectionError == nil) {
                                              
                                              
-                                             NSString *html = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                             NSError *error;
-                                             NSDictionary *diction = [NSJSONSerialization JSONObjectWithData:[html dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
+                                            // NSString *html = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                           //  NSError *error;
+                                          //   NSDictionary *diction = [NSJSONSerialization JSONObjectWithData:[html dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
                                              
                                              //NSLog(@"diction : %@", diction);
                                              // NSString *method = [diction valueForKey:@"type"];
@@ -198,7 +263,7 @@
 
 - (void) uploadImageLegacy:(UIImage *)image json:(NSString*)jsonString{
     //upload single image
-    NSURL *url = [NSURL URLWithString:card_image_upload];
+    NSURL *url = [NSURL URLWithString:image_upload];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     [request setHTTPMethod:@"POST"];
     NSString *contentTypeValue = [NSString stringWithFormat:@"multipart/form-data; boundary=%s", POST_BODY_BOURDARY];
@@ -251,7 +316,82 @@
 }
 
 
+- (void) uploadVideo:(NSURL *)video_url json:(NSString*)jsonString {
+   /*
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:@"http://52.78.1.207:3000/upload/aa" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileURL:video_url name:@"uploadFile" fileName:@"filename.mov" mimeType:@"video/quicktime" error:nil];
+        [formData appe]
+        
+        
+    } error:nil];
+    
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    
+    NSURLSessionUploadTask *uploadTask;
+    uploadTask = [manager
+                  uploadTaskWithStreamedRequest:request
+                  progress:^(NSProgress * _Nonnull uploadProgress) {
+                      // This is not called back on the main queue.
+                      // You are responsible for dispatching to the main queue for UI updates
+                      dispatch_async(dispatch_get_main_queue(), ^{
+                          //Update the progress view
+                        //  [ProgressView setProgress:uploadProgress.fractionCompleted];
+                      });
+                  }
+                  completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+                      if (error) {
+                          NSLog(@"Error: %@", error);
+                      } else {
+                          NSLog(@"%@ %@", response, responseObject);
+                      }
+                  }];
+    
+    [uploadTask resume];
+    
+    */
+    //upload single image
+    NSURL *url = [NSURL URLWithString:@"http://52.78.1.207:3000/upload/aa"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    [request setHTTPMethod:@"POST"];
+    NSString *contentTypeValue = [NSString stringWithFormat:@"multipart/form-data; boundary=%s", POST_BODY_BOURDARY];
+    [request addValue:contentTypeValue forHTTPHeaderField:@"Content-type"];
+    
+    NSMutableData *dataForm = [NSMutableData alloc];
+    
+    
+    //image
+  //  NSData *imageData = [NSData
+    [dataForm appendData:[[NSString stringWithFormat:@"\r\n--%s\r\n",POST_BODY_BOURDARY] dataUsingEncoding:NSUTF8StringEncoding]];
+    [dataForm appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"uploadFile\"; filename=\"%@.mov\"\r\n",@"picture"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [dataForm appendData:[[NSString stringWithFormat:@"Content-Type:video/quicktime\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [dataForm appendData:[NSData dataWithContentsOfURL:video_url]];
+    [dataForm  appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    //  json
+    [dataForm appendData:[[NSString stringWithFormat:@"--%s\r\n",POST_BODY_BOURDARY] dataUsingEncoding:NSUTF8StringEncoding]];
+    [dataForm appendData:[@"Content-Disposition: form-data; name=\"json\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [dataForm appendData:[@"Content-Type: application/json; charset=UTF-8\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [dataForm appendData:[@"Content-Transfer-Encoding: 8bit\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [dataForm appendData:[[NSString stringWithFormat:@"%@\r\n", jsonString] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    // close form
+    [dataForm appendData:[[NSString stringWithFormat:@"--%s--\r\n",POST_BODY_BOURDARY] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [request setHTTPBody:dataForm];
+    
+    
+    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession* urlSession = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:(id)self delegateQueue:nil];
+    NSURLSessionUploadTask *uploadTask = [urlSession uploadTaskWithRequest:request fromData:dataForm];
+    [uploadTask resume];
 
+    
+    
+}
 
 
 @end

@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A35EEA2F1D0D43DE0043EDA6 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D07CD61CE04D4400D21D4F /* KakaoOpenSDK.framework */; };
+		A35EEA811D0D44B20043EDA6 /* Stack of Photos.png in Resources */ = {isa = PBXBuildFile; fileRef = A35EEA7D1D0D44B20043EDA6 /* Stack of Photos.png */; };
+		A35EEA821D0D44B20043EDA6 /* Stack of Photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A35EEA7E1D0D44B20043EDA6 /* Stack of Photos@2x.png */; };
+		A35EEA831D0D44B20043EDA6 /* Video Playlist.png in Resources */ = {isa = PBXBuildFile; fileRef = A35EEA7F1D0D44B20043EDA6 /* Video Playlist.png */; };
+		A35EEA841D0D44B20043EDA6 /* Video Playlist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A35EEA801D0D44B20043EDA6 /* Video Playlist@2x.png */; };
+		A35EEA881D0D44C70043EDA6 /* no_picture.png in Resources */ = {isa = PBXBuildFile; fileRef = A35EEA851D0D44C70043EDA6 /* no_picture.png */; };
+		A35EEA891D0D44C70043EDA6 /* picture_modify.png in Resources */ = {isa = PBXBuildFile; fileRef = A35EEA861D0D44C70043EDA6 /* picture_modify.png */; };
+		A35EEA8A1D0D44C70043EDA6 /* Play.png in Resources */ = {isa = PBXBuildFile; fileRef = A35EEA871D0D44C70043EDA6 /* Play.png */; };
+		A35EEA971D0D44D50043EDA6 /* My_Info.m in Sources */ = {isa = PBXBuildFile; fileRef = A35EEA8C1D0D44D50043EDA6 /* My_Info.m */; };
+		A35EEA981D0D44D50043EDA6 /* My_Info+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A35EEA8E1D0D44D50043EDA6 /* My_Info+CoreDataProperties.m */; };
+		A35EEA991D0D44D50043EDA6 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = A35EEA901D0D44D50043EDA6 /* Photo.m */; };
+		A35EEA9A1D0D44D50043EDA6 /* Photo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A35EEA921D0D44D50043EDA6 /* Photo+CoreDataProperties.m */; };
+		A35EEA9B1D0D44D50043EDA6 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = A35EEA941D0D44D50043EDA6 /* Video.m */; };
+		A35EEA9C1D0D44D50043EDA6 /* Video+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A35EEA961D0D44D50043EDA6 /* Video+CoreDataProperties.m */; };
+		A35EEA9E1D0D44F00043EDA6 /* image_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = A35EEA9D1D0D44F00043EDA6 /* image_empty.png */; };
+		A35EEAA11D0D45080043EDA6 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A35EEAA01D0D45080043EDA6 /* VideoViewController.m */; };
+		A35EEAA41D0D450E0043EDA6 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A35EEAA31D0D450E0043EDA6 /* PhotoViewController.m */; };
+		A35EEAA81D0D451A0043EDA6 /* CardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A35EEAA61D0D451A0043EDA6 /* CardTableViewCell.m */; };
+		A35EEAA91D0D451A0043EDA6 /* CardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A35EEAA71D0D451A0043EDA6 /* CardTableViewCell.xib */; };
+		A35EEAAB1D0D45210043EDA6 /* cardName.png in Resources */ = {isa = PBXBuildFile; fileRef = A35EEAAA1D0D45210043EDA6 /* cardName.png */; };
 		A3D07C981CE049D300D21D4F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D07C971CE049D300D21D4F /* main.m */; };
 		A3D07C9B1CE049D300D21D4F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D07C9A1CE049D300D21D4F /* AppDelegate.m */; };
 		A3D07C9E1CE049D300D21D4F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D07C9D1CE049D300D21D4F /* ViewController.m */; };
@@ -14,15 +34,46 @@
 		A3D07CA41CE049D300D21D4F /* mkcloud_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A3D07CA21CE049D300D21D4F /* mkcloud_ios.xcdatamodeld */; };
 		A3D07CA61CE049D300D21D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3D07CA51CE049D300D21D4F /* Assets.xcassets */; };
 		A3D07CA91CE049D300D21D4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3D07CA71CE049D300D21D4F /* LaunchScreen.storyboard */; };
-		A3D07CD71CE04D4400D21D4F /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D07CD61CE04D4400D21D4F /* KakaoOpenSDK.framework */; };
 		A3D07CD91CE04F8200D21D4F /* KakaoLogin.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D07CD81CE04F8200D21D4F /* KakaoLogin.png */; };
 		A3D07CDC1CE0507400D21D4F /* Common_modules.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D07CDB1CE0507400D21D4F /* Common_modules.m */; };
 		A3D07CE21CE059B800D21D4F /* no_picture.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D07CE01CE059B800D21D4F /* no_picture.png */; };
 		A3D07CE31CE059B800D21D4F /* picture_modify.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D07CE11CE059B800D21D4F /* picture_modify.png */; };
 		A3D07CE61CE05ADE00D21D4F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D07CE51CE05ADE00D21D4F /* MainViewController.m */; };
+		D14BF05748259C6A1D339D3B /* libPods-mkcloud_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EA8972C35F640FD175FF53 /* libPods-mkcloud_ios.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		146442806B683B3BF6CB098F /* Pods-mkcloud_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mkcloud_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-mkcloud_ios/Pods-mkcloud_ios.release.xcconfig"; sourceTree = "<group>"; };
+		43EA8972C35F640FD175FF53 /* libPods-mkcloud_ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mkcloud_ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A35EEA7D1D0D44B20043EDA6 /* Stack of Photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Stack of Photos.png"; path = "mkcloud_ios/Stack of Photos.png"; sourceTree = "<group>"; };
+		A35EEA7E1D0D44B20043EDA6 /* Stack of Photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Stack of Photos@2x.png"; path = "mkcloud_ios/Stack of Photos@2x.png"; sourceTree = "<group>"; };
+		A35EEA7F1D0D44B20043EDA6 /* Video Playlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Video Playlist.png"; path = "mkcloud_ios/Video Playlist.png"; sourceTree = "<group>"; };
+		A35EEA801D0D44B20043EDA6 /* Video Playlist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Video Playlist@2x.png"; path = "mkcloud_ios/Video Playlist@2x.png"; sourceTree = "<group>"; };
+		A35EEA851D0D44C70043EDA6 /* no_picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = no_picture.png; path = mkcloud_ios/no_picture.png; sourceTree = "<group>"; };
+		A35EEA861D0D44C70043EDA6 /* picture_modify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = picture_modify.png; path = mkcloud_ios/picture_modify.png; sourceTree = "<group>"; };
+		A35EEA871D0D44C70043EDA6 /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Play.png; path = mkcloud_ios/Play.png; sourceTree = "<group>"; };
+		A35EEA8B1D0D44D50043EDA6 /* My_Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = My_Info.h; path = mkcloud_ios/My_Info.h; sourceTree = "<group>"; };
+		A35EEA8C1D0D44D50043EDA6 /* My_Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = My_Info.m; path = mkcloud_ios/My_Info.m; sourceTree = "<group>"; };
+		A35EEA8D1D0D44D50043EDA6 /* My_Info+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "My_Info+CoreDataProperties.h"; path = "mkcloud_ios/My_Info+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A35EEA8E1D0D44D50043EDA6 /* My_Info+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "My_Info+CoreDataProperties.m"; path = "mkcloud_ios/My_Info+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A35EEA8F1D0D44D50043EDA6 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = mkcloud_ios/Photo.h; sourceTree = "<group>"; };
+		A35EEA901D0D44D50043EDA6 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = mkcloud_ios/Photo.m; sourceTree = "<group>"; };
+		A35EEA911D0D44D50043EDA6 /* Photo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Photo+CoreDataProperties.h"; path = "mkcloud_ios/Photo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A35EEA921D0D44D50043EDA6 /* Photo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Photo+CoreDataProperties.m"; path = "mkcloud_ios/Photo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A35EEA931D0D44D50043EDA6 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Video.h; path = mkcloud_ios/Video.h; sourceTree = "<group>"; };
+		A35EEA941D0D44D50043EDA6 /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Video.m; path = mkcloud_ios/Video.m; sourceTree = "<group>"; };
+		A35EEA951D0D44D50043EDA6 /* Video+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Video+CoreDataProperties.h"; path = "mkcloud_ios/Video+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A35EEA961D0D44D50043EDA6 /* Video+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Video+CoreDataProperties.m"; path = "mkcloud_ios/Video+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A35EEA9D1D0D44F00043EDA6 /* image_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_empty.png; path = mkcloud_ios/image_empty.png; sourceTree = "<group>"; };
+		A35EEA9F1D0D45080043EDA6 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoViewController.h; path = mkcloud_ios/VideoViewController.h; sourceTree = "<group>"; };
+		A35EEAA01D0D45080043EDA6 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoViewController.m; path = mkcloud_ios/VideoViewController.m; sourceTree = "<group>"; };
+		A35EEAA21D0D450E0043EDA6 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoViewController.h; path = mkcloud_ios/PhotoViewController.h; sourceTree = "<group>"; };
+		A35EEAA31D0D450E0043EDA6 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoViewController.m; path = mkcloud_ios/PhotoViewController.m; sourceTree = "<group>"; };
+		A35EEAA51D0D451A0043EDA6 /* CardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardTableViewCell.h; path = mkcloud_ios/CardTableViewCell.h; sourceTree = "<group>"; };
+		A35EEAA61D0D451A0043EDA6 /* CardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardTableViewCell.m; path = mkcloud_ios/CardTableViewCell.m; sourceTree = "<group>"; };
+		A35EEAA71D0D451A0043EDA6 /* CardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CardTableViewCell.xib; path = mkcloud_ios/CardTableViewCell.xib; sourceTree = "<group>"; };
+		A35EEAAA1D0D45210043EDA6 /* cardName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cardName.png; path = mkcloud_ios/cardName.png; sourceTree = "<group>"; };
+		A35EEAAC1D0D452C0043EDA6 /* Size_Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Size_Define.h; sourceTree = "<group>"; };
 		A3D07C931CE049D300D21D4F /* mkcloud_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mkcloud_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D07C971CE049D300D21D4F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A3D07C991CE049D300D21D4F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -35,14 +86,15 @@
 		A3D07CA81CE049D300D21D4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3D07CAA1CE049D300D21D4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3D07CD61CE04D4400D21D4F /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
-		A3D07CD81CE04F8200D21D4F /* KakaoLogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KakaoLogin.png; sourceTree = "<group>"; };
+		A3D07CD81CE04F8200D21D4F /* KakaoLogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = KakaoLogin.png; path = mkcloud_ios/KakaoLogin.png; sourceTree = "<group>"; };
 		A3D07CDA1CE0507400D21D4F /* Common_modules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common_modules.h; sourceTree = "<group>"; };
 		A3D07CDB1CE0507400D21D4F /* Common_modules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common_modules.m; sourceTree = "<group>"; };
 		A3D07CDD1CE050D500D21D4F /* Server_address.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Server_address.h; sourceTree = "<group>"; };
-		A3D07CE01CE059B800D21D4F /* no_picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_picture.png; sourceTree = "<group>"; };
-		A3D07CE11CE059B800D21D4F /* picture_modify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture_modify.png; sourceTree = "<group>"; };
+		A3D07CE01CE059B800D21D4F /* no_picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = no_picture.png; path = mkcloud_ios/no_picture.png; sourceTree = "<group>"; };
+		A3D07CE11CE059B800D21D4F /* picture_modify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = picture_modify.png; path = mkcloud_ios/picture_modify.png; sourceTree = "<group>"; };
 		A3D07CE41CE05ADE00D21D4F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A3D07CE51CE05ADE00D21D4F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		F9DA29271577B002650BCD8D /* Pods-mkcloud_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mkcloud_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mkcloud_ios/Pods-mkcloud_ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,19 +102,94 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3D07CD71CE04D4400D21D4F /* KakaoOpenSDK.framework in Frameworks */,
+				A35EEA2F1D0D43DE0043EDA6 /* KakaoOpenSDK.framework in Frameworks */,
+				D14BF05748259C6A1D339D3B /* libPods-mkcloud_ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8ACF18A833758ED1BED14874 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F9DA29271577B002650BCD8D /* Pods-mkcloud_ios.debug.xcconfig */,
+				146442806B683B3BF6CB098F /* Pods-mkcloud_ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A08F4099FADD039C90BBCA95 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3D07CD61CE04D4400D21D4F /* KakaoOpenSDK.framework */,
+				43EA8972C35F640FD175FF53 /* libPods-mkcloud_ios.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A35EEA7A1D0D44420043EDA6 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				A35EEA7D1D0D44B20043EDA6 /* Stack of Photos.png */,
+				A35EEA7E1D0D44B20043EDA6 /* Stack of Photos@2x.png */,
+				A35EEA851D0D44C70043EDA6 /* no_picture.png */,
+				A35EEA861D0D44C70043EDA6 /* picture_modify.png */,
+				A35EEA871D0D44C70043EDA6 /* Play.png */,
+				A35EEA7F1D0D44B20043EDA6 /* Video Playlist.png */,
+				A35EEAAA1D0D45210043EDA6 /* cardName.png */,
+				A35EEA801D0D44B20043EDA6 /* Video Playlist@2x.png */,
+				A3D07CD81CE04F8200D21D4F /* KakaoLogin.png */,
+				A3D07CE01CE059B800D21D4F /* no_picture.png */,
+				A3D07CE11CE059B800D21D4F /* picture_modify.png */,
+				A35EEA9D1D0D44F00043EDA6 /* image_empty.png */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		A35EEA7B1D0D444F0043EDA6 /* Coredata */ = {
+			isa = PBXGroup;
+			children = (
+				A35EEA8B1D0D44D50043EDA6 /* My_Info.h */,
+				A35EEA8C1D0D44D50043EDA6 /* My_Info.m */,
+				A35EEA8D1D0D44D50043EDA6 /* My_Info+CoreDataProperties.h */,
+				A35EEA8E1D0D44D50043EDA6 /* My_Info+CoreDataProperties.m */,
+				A35EEA8F1D0D44D50043EDA6 /* Photo.h */,
+				A35EEA901D0D44D50043EDA6 /* Photo.m */,
+				A35EEA911D0D44D50043EDA6 /* Photo+CoreDataProperties.h */,
+				A35EEA921D0D44D50043EDA6 /* Photo+CoreDataProperties.m */,
+				A35EEA931D0D44D50043EDA6 /* Video.h */,
+				A35EEA941D0D44D50043EDA6 /* Video.m */,
+				A35EEA951D0D44D50043EDA6 /* Video+CoreDataProperties.h */,
+				A35EEA961D0D44D50043EDA6 /* Video+CoreDataProperties.m */,
+			);
+			name = Coredata;
+			sourceTree = "<group>";
+		};
+		A35EEA7C1D0D448F0043EDA6 /* Store_data */ = {
+			isa = PBXGroup;
+			children = (
+				A35EEAA21D0D450E0043EDA6 /* PhotoViewController.h */,
+				A35EEAA31D0D450E0043EDA6 /* PhotoViewController.m */,
+				A35EEA9F1D0D45080043EDA6 /* VideoViewController.h */,
+				A35EEAA01D0D45080043EDA6 /* VideoViewController.m */,
+				A35EEAA51D0D451A0043EDA6 /* CardTableViewCell.h */,
+				A35EEAA61D0D451A0043EDA6 /* CardTableViewCell.m */,
+				A35EEAA71D0D451A0043EDA6 /* CardTableViewCell.xib */,
+			);
+			name = Store_data;
+			sourceTree = "<group>";
+		};
 		A3D07C8A1CE049D300D21D4F = {
 			isa = PBXGroup;
 			children = (
+				A35EEA7A1D0D44420043EDA6 /* Image */,
+				A35EEA7B1D0D444F0043EDA6 /* Coredata */,
+				A35EEA7C1D0D448F0043EDA6 /* Store_data */,
 				A3D07C951CE049D300D21D4F /* mkcloud_ios */,
 				A3D07C941CE049D300D21D4F /* Products */,
-				A3D07CD61CE04D4400D21D4F /* KakaoOpenSDK.framework */,
+				A08F4099FADD039C90BBCA95 /* Frameworks */,
+				8ACF18A833758ED1BED14874 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,9 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				A3D07CDD1CE050D500D21D4F /* Server_address.h */,
-				A3D07CD81CE04F8200D21D4F /* KakaoLogin.png */,
-				A3D07CE01CE059B800D21D4F /* no_picture.png */,
-				A3D07CE11CE059B800D21D4F /* picture_modify.png */,
+				A35EEAAC1D0D452C0043EDA6 /* Size_Define.h */,
 				A3D07CDA1CE0507400D21D4F /* Common_modules.h */,
 				A3D07CDB1CE0507400D21D4F /* Common_modules.m */,
 				A3D07C991CE049D300D21D4F /* AppDelegate.h */,
@@ -114,9 +239,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3D07CAD1CE049D300D21D4F /* Build configuration list for PBXNativeTarget "mkcloud_ios" */;
 			buildPhases = (
+				04DC8B44C1033EE942344B03 /* [CP] Check Pods Manifest.lock */,
 				A3D07C8F1CE049D300D21D4F /* Sources */,
 				A3D07C901CE049D300D21D4F /* Frameworks */,
 				A3D07C911CE049D300D21D4F /* Resources */,
+				AF82CFE5C47538BE19EBE6C1 /* [CP] Embed Pods Frameworks */,
+				6D0321D1C505D52E8564C754 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -165,16 +293,74 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A35EEA891D0D44C70043EDA6 /* picture_modify.png in Resources */,
+				A35EEA811D0D44B20043EDA6 /* Stack of Photos.png in Resources */,
+				A35EEAA91D0D451A0043EDA6 /* CardTableViewCell.xib in Resources */,
 				A3D07CE31CE059B800D21D4F /* picture_modify.png in Resources */,
 				A3D07CA91CE049D300D21D4F /* LaunchScreen.storyboard in Resources */,
+				A35EEA821D0D44B20043EDA6 /* Stack of Photos@2x.png in Resources */,
+				A35EEA8A1D0D44C70043EDA6 /* Play.png in Resources */,
 				A3D07CD91CE04F8200D21D4F /* KakaoLogin.png in Resources */,
+				A35EEA841D0D44B20043EDA6 /* Video Playlist@2x.png in Resources */,
 				A3D07CA61CE049D300D21D4F /* Assets.xcassets in Resources */,
+				A35EEAAB1D0D45210043EDA6 /* cardName.png in Resources */,
+				A35EEA9E1D0D44F00043EDA6 /* image_empty.png in Resources */,
+				A35EEA881D0D44C70043EDA6 /* no_picture.png in Resources */,
 				A3D07CE21CE059B800D21D4F /* no_picture.png in Resources */,
 				A3D07CA11CE049D300D21D4F /* Main.storyboard in Resources */,
+				A35EEA831D0D44B20043EDA6 /* Video Playlist.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04DC8B44C1033EE942344B03 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6D0321D1C505D52E8564C754 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mkcloud_ios/Pods-mkcloud_ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF82CFE5C47538BE19EBE6C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mkcloud_ios/Pods-mkcloud_ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A3D07C8F1CE049D300D21D4F /* Sources */ = {
@@ -184,9 +370,18 @@
 				A3D07C9E1CE049D300D21D4F /* ViewController.m in Sources */,
 				A3D07CE61CE05ADE00D21D4F /* MainViewController.m in Sources */,
 				A3D07CDC1CE0507400D21D4F /* Common_modules.m in Sources */,
+				A35EEAA81D0D451A0043EDA6 /* CardTableViewCell.m in Sources */,
+				A35EEA9C1D0D44D50043EDA6 /* Video+CoreDataProperties.m in Sources */,
+				A35EEA991D0D44D50043EDA6 /* Photo.m in Sources */,
+				A35EEA9A1D0D44D50043EDA6 /* Photo+CoreDataProperties.m in Sources */,
+				A35EEA981D0D44D50043EDA6 /* My_Info+CoreDataProperties.m in Sources */,
+				A35EEA971D0D44D50043EDA6 /* My_Info.m in Sources */,
 				A3D07CA41CE049D300D21D4F /* mkcloud_ios.xcdatamodeld in Sources */,
+				A35EEA9B1D0D44D50043EDA6 /* Video.m in Sources */,
 				A3D07C9B1CE049D300D21D4F /* AppDelegate.m in Sources */,
+				A35EEAA11D0D45080043EDA6 /* VideoViewController.m in Sources */,
 				A3D07C981CE049D300D21D4F /* main.m in Sources */,
+				A35EEAA41D0D450E0043EDA6 /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +491,7 @@
 		};
 		A3D07CAE1CE049D300D21D4F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9DA29271577B002650BCD8D /* Pods-mkcloud_ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -306,6 +502,10 @@
 				INFOPLIST_FILE = mkcloud_ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/AFNetworking",
+				);
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = minkyu.mkcloud;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -314,6 +514,7 @@
 		};
 		A3D07CAF1CE049D300D21D4F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 146442806B683B3BF6CB098F /* Pods-mkcloud_ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -324,6 +525,10 @@
 				INFOPLIST_FILE = mkcloud_ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/AFNetworking",
+				);
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = minkyu.mkcloud;
 				PRODUCT_NAME = "$(TARGET_NAME)";

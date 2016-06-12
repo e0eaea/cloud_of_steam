@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <KakaoOpenSDK/KakaoOpenSDK.h>
 #import "MainViewController.h"
+#import "Common_modules.h"
 
 @interface ViewController ()
 
@@ -46,17 +47,16 @@
                 if (result) {
                     NSLog(@"카카오톡 프로필 가져오기 성공 %@",result);
                     
-                   // NSArray *dictionKeys = @[@"type", @"id",@"nickname"];
-                   // NSArray *dictionVals = @[@"login",result.ID.stringValue, [result propertyForKey:@"nickname"]];
+                    NSArray *dictionKeys = @[@"type", @"id"];
+                    NSArray *dictionVals = @[@"login",result.ID.stringValue];
                     
-                 //   NSDictionary *kakaoData = [NSDictionary dictionaryWithObjects:dictionVals forKeys:dictionKeys];
+                    NSDictionary *kakaoData = [NSDictionary dictionaryWithObjects:dictionVals forKeys:dictionKeys];
                     
-                 //   NSString *userJsonData = [Common_modules transToJson:kakaoData];
                     
-                 //   [[[UIApplication sharedApplication] delegate] performSelector:@selector(connectToServer:url:) withObject:userJsonData withObject:sign_up];
+                   [[[UIApplication sharedApplication] delegate] performSelector:@selector(saveData:) withObject:kakaoData];
                     
                     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                    MainViewController* vc = [sb instantiateViewControllerWithIdentifier:@"MainViewController"];
+                    UIViewController* vc = [sb instantiateViewControllerWithIdentifier:@"MainViewController"];
                     [_window setRootViewController:vc];
                     
                     
