@@ -37,9 +37,18 @@ router.post('/picture', upload.single('uploadFile'), function (req, res, next) {
   on('httpUploadProgress', function(evt) { console.log(evt); }).
   send(function(err, data) {
 	var params  = { TableName:'mkcloud-dynamo',
-			Item:{  id:userName, url:data.Location, due_date:due_date  }};
- 	 db.put(params, function(err,data) {
-	 console.log('업로드성공');
+			Item:{  id:userName, url:userName+'/' +filename, due_date:due_date  }};
+ 	 
+   var resObj = {
+          server_url: userName+'/' +filename ,
+          status: "success"
+        };
+
+   db.put(params, function(err,data) {
+   console.log('업로드성공');
+   
+        console.log("리스폰스 보냄");
+        res.end(JSON.stringify(resObj));
 	});
 	console.log(err, data) });
 
@@ -51,7 +60,7 @@ router.post('/picture', upload.single('uploadFile'), function (req, res, next) {
       if(err){
         console.log(err);
       } else{
-        res.redirect('/');
+        
       }
     });
   });
@@ -87,10 +96,10 @@ router.post('/aa', upload.single('uploadFile'), function (req, res, next) {
   on('httpUploadProgress', function(evt) { console.log(evt); }).
   send(function(err, data) {
   var params  = { TableName:'mkcloud-dynamo',
-      Item:{  id:userName, url:data.Location, due_date:due_date  }};
+      Item:{  id:userName, url:userName+'/' +filename, due_date:due_date  }};
 
       var resObj = {
-          server_url: data.Location ,
+          server_url: userName+'/' +filename,
           status: "success"
         };
 

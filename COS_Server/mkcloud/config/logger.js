@@ -4,7 +4,6 @@
 var winston = require('winston');
 var time = require('time');
 
-aa
 var logger = new winston.Logger({
     transports:[
         new winston.transports.Console({

@@ -7,6 +7,8 @@
 //
 
 #import "VideoViewController.h"
+#import "Server_address.h"
+#import "Common_modules.h"
 #import "My_Info.h"
 #import "Video.h"
 #import "CardTableViewCell.h"
@@ -33,6 +35,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *done_to_server;
 
 @property (strong, nonatomic) IBOutlet UILabel *delete_label;
+@property (nonatomic) NSTimer* timer;
 
 @end
 
@@ -40,6 +43,7 @@
 {
     
     NSString * current_url;
+    NSString * current_server_url;
 }
 
 - (void)viewDidLoad {
@@ -47,6 +51,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self reload_list];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self
+                                            selector:@selector(background_cleaner:) userInfo:nil repeats:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,6 +85,7 @@
     NSArray *sorted_arr = [_myInfo.my_video sortedArrayUsingDescriptors:@[due]];
     
     [_tableData addObjectsFromArray:sorted_arr];
+    [_tableview reloadData];
     
 }
 
@@ -143,7 +150,7 @@
     Video *video=[_tableData objectAtIndex:indexPath.row];
     [_image_preview setImage:[UIImage imageWithData:video.thumnail_image] ];
     current_url=video.my_url;
-    
+    current_server_url=video.server_url;
     [UIView animateWithDuration:0.5
                      animations:^{
                          
@@ -181,6 +188,15 @@
                                     {
                                         
                                         Video *video=[_tableData objectAtIndex:indexPath.row];
+                                      
+                                        NSArray *dictionKeys = @[@"id",@"url"];
+                                        NSArray *dictionVals = @[_myInfo.id,video.server_url];
+                                        NSDictionary *client_data = [NSDictionary dictionaryWithObjects:dictionVals forKeys:dictionKeys];
+                                        
+                                        NSString *userJsonData = [Common_modules transToJson:client_data];
+                                        
+                                        [[[UIApplication sharedApplication] delegate] performSelector:@selector(connectToServer:url:) withObject:userJsonData withObject:s3_dynamo_delete];
+                                        
                                         
                                         [_myInfo removeMy_videoObject:video];
                                         
@@ -289,10 +305,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         NSData *imageData    = UIImagePNGRepresentation(FrameImage);
         _video.thumnail_image=imageData;
 
-   
-    
 
-    
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -323,7 +336,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 (UIImagePickerController *)picker
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-    
+    [self.tabBarController.tabBar setHidden:NO];
 }
 
 
@@ -338,6 +351,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     } error:nil];
     
     NSLog(@"비디오전송 시도!");
+    [self.view setUserInteractionEnabled:NO];
+    
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     
     NSURLSessionUploadTask *uploadTask;
@@ -376,7 +391,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                           
 
                           
-                          
                           [UIView animateWithDuration:0.2
                                            animations:^{
                                                
@@ -386,8 +400,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                                            }
                                            completion:^(BOOL finished){
                                                [self.tabBarController.tabBar setHidden:NO];
-                                               [_tableData addObject:_video];
-                                               [_tableview reloadData];
+                                                [self.view setUserInteractionEnabled:YES];
+                                               [self reload_list];
                                            }];
                           
                       }
@@ -412,7 +426,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSLog(@"만료시간 %@",due_date);
     
     NSArray *dictionKeys = @[@"id", @"date", @"image_name"];
-    NSArray *dictionVals = @[@"KMK", due_date,_video.my_url];
+    NSArray *dictionVals = @[_myInfo.id, due_date,_video.my_url];
     NSDictionary *client_data = [NSDictionary dictionaryWithObjects:dictionVals forKeys:dictionKeys];
     
     [_delete_label setHidden:YES];
@@ -472,7 +486,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 - (IBAction)send_kakao:(id)sender {
     
-    KakaoTalkLinkObject *label= [KakaoTalkLinkObject createLabel:_video.server_url];
+    KakaoTalkLinkObject *label= [KakaoTalkLinkObject createLabel: [NSString stringWithFormat:@"mkcloud.s3-ap-northeast-1.amazonaws.com/%@",current_server_url]];
     [KOAppCall openKakaoTalkAppLink:@[label]];
 }
 - (IBAction)video_play:(id)sender {
@@ -494,6 +508,73 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     playerViewController.player = player;
     [self presentViewController:playerViewController animated:YES completion:nil];
    }
+
+
+//백그라운드에서 하는 일
+- (void)background_cleaner:(NSTimer *)theTimer {
+
+    NSTimeZone *krTimeZone =[NSTimeZone timeZoneWithName:@"Asia/Seoul"];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormatter setTimeZone:krTimeZone];
+    
+    NSString* d_date=[dateFormatter stringFromDate:[NSDate date]];
+    
+    
+    NSDateFormatter *df = [NSDateFormatter new];
+    [df setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    df.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+    
+    NSDate *now_korea = [df dateFromString:d_date];
+
+    NSLog(@"현재시간 %@",now_korea);
+
+    for(Video * video_obj in _tableData)
+    {
+    
+        if([now_korea compare: video_obj.due_date] ==  NSOrderedDescending)
+        {
+        dispatch_async(dispatch_get_main_queue(), ^{
+          
+            [_myInfo removeMy_videoObject:video_obj];
+            NSError *error;
+            // here's where the actual save happens, and if it doesn't we print something out to the console
+            if (![_myInfo.managedObjectContext save:&error])
+            {
+                NSLog(@"Problem saving: %@", [error localizedDescription]);
+            }
+            
+            NSLog(@"동영상 자동삭제");
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:@"알림"
+                                          message:@"만료기간이 지난 동영상이 삭제되었습니다."
+                                          preferredStyle:UIAlertControllerStyleActionSheet];
+            
+            
+            UIAlertAction* yesButton = [UIAlertAction
+                                        actionWithTitle:@"확인"
+                                        style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * action)
+                                        {
+                                            [self.navigationController popViewControllerAnimated:YES];
+                                            
+                                        }];
+            
+            [alert addAction:yesButton];
+            
+            
+            
+            [self presentViewController:alert animated:YES completion:nil];
+            
+            
+            [self reload_list];
+            
+        });
+        }
+        
+    }
+}
 
 
 /*

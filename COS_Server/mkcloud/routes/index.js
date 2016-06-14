@@ -1,3 +1,4 @@
+
 var express = require('express');
 var router = express.Router();
 var schedule = require('node-schedule');        // Node 스케줄러
@@ -8,14 +9,14 @@ var logger = require(path+'/config/logger.js');        // Winston Logger
 var AWS = require('aws-sdk');
 AWS.config.update({region: 'ap-northeast-1'});
 var db = new AWS.DynamoDB.DocumentClient();
+var s3 = new AWS.S3();
 
 // 30초마다 한번씩 수행
 var rule1 = new schedule.RecurrenceRule();
-rule1.seconds = 30;
+rule1.seconds = 00;
 var scheduledJob2 = schedule.scheduleJob(rule1,
     function(){
-        logger.info('30초마다 수행!!');
-        console.log('30마다 수행!!');
+        console.log('00마다 수행!!');
     var timezone = time.currentTimezone; // Asia/Seoul
     
     var offset = 9;
@@ -90,11 +91,71 @@ var scheduledJob2 = schedule.scheduleJob(rule1,
         }
     });
 
+
+
+    var delete_s3_param = {
+      Bucket: 'mkcloud', 
+      Key: obj.url
+    };
+    
+    s3.deleteObject(delete_s3_param, function(err, data) {
+                if (err) console.log(err, err.stack);
+                else console.log('delete', data);
+            });
+
+
+
 }
 
 }
 
 });
+
+
+router.post('/delete', function(req, res, next) {
+
+  var id=req.body.id;
+  var url=req.body.url;
+
+ console.log("delete dynamo,s3");
+  console.log(req.body);
+
+  var delete_params = {
+        TableName:"mkcloud-dynamo",
+        Key:{
+            "id":id,
+            "url":url
+        }      
+    }
+
+
+    console.log("Attempting a conditional delete...");
+
+
+    db.delete(delete_params, function(err, data) {
+        if (err) {
+            console.error("Unable to delete item. Error JSON:", JSON.stringify(err, null, 2));
+        } else {
+            console.log("DeleteItem succeeded:", JSON.stringify(data, null, 2));
+        }
+    });
+
+
+
+    var delete_s3_param = {
+      Bucket: 'mkcloud', 
+      Key: url
+    };
+    
+    s3.deleteObject(delete_s3_param, function(err, data) {
+                if (err) console.log(err, err.stack);
+                else console.log('delete', data);
+            });
+
+});
+
+
+
 
 
 

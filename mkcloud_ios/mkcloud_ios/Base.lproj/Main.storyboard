@@ -120,10 +120,10 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R8w-AQ-obP">
                                 <rect key="frame" x="0.0" y="600" width="375" height="261"/>
                                 <subviews>
-                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="pM2-Ha-PpL">
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pM2-Ha-PpL">
                                         <rect key="frame" x="0.0" y="54" width="375" height="207"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="486883457.349406">
-                                            <!--2016-06-06 05:24:17 +0000-->
+                                        <date key="date" timeIntervalSinceReferenceDate="486882000.349406">
+                                            <!--2016-06-06 05:00:00 +0000-->
                                         </date>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PN-1J-42y">
@@ -270,10 +270,10 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CVc-gf-eGW">
                                 <rect key="frame" x="0.0" y="600" width="375" height="261"/>
                                 <subviews>
-                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="3XB-CB-LYL">
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3XB-CB-LYL">
                                         <rect key="frame" x="0.0" y="54" width="375" height="207"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="486883457.349406">
-                                            <!--2016-06-06 05:24:17 +0000-->
+                                        <date key="date" timeIntervalSinceReferenceDate="486882000.349406">
+                                            <!--2016-06-06 05:00:00 +0000-->
                                         </date>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpb-wf-VLe">

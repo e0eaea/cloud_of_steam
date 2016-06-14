@@ -199,8 +199,6 @@
 - (void)connectToServer:(NSString*)jsonString url:(NSString *)urlString {
     
     NSLog(@"ConnectToServer With Json, URL");
-    //Formatting the URL
-    //NSString *urlAsString = kSend;
     NSURL *url = [NSURL URLWithString:urlString];
     
     //Structuring the URL request
@@ -226,32 +224,19 @@
                                          if ([data length] > 0 && connectionError == nil) {
                                              
                                              
-                                            // NSString *html = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                           //  NSError *error;
-                                          //   NSDictionary *diction = [NSJSONSerialization JSONObjectWithData:[html dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
+                                             NSString *html = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                             NSError *error;
+                                            NSDictionary *diction = [NSJSONSerialization JSONObjectWithData:[html dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
                                              
-                                             //NSLog(@"diction : %@", diction);
-                                             // NSString *method = [diction valueForKey:@"type"];
-                                             
-                                             
+                                             NSLog(@"diction : %@", diction);
+                                
                                              
                                              if (connectionError !=nil){
                                                  
                                                  NSLog(@"Error happened = %@",connectionError);
                                                  
                                              }
-                                           /*
-                                             if([urlString isEqualToString:brief_info])
-                                             {}
-                                            */
-                                             
-                                             
-                                             
-                                              //   [_search_delegate response_brief_info:diction];
-                                             
-                                             
-                                           
-                                              //   [[NSNotificationCenter defaultCenter] postNotificationName:@"more_info" object:nil userInfo:diction];
+                                          
                                              
                                              
                                          }
@@ -261,48 +246,6 @@
 }
 
 
-- (void) uploadImageLegacy:(UIImage *)image json:(NSString*)jsonString{
-    //upload single image
-    NSURL *url = [NSURL URLWithString:image_upload];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-    [request setHTTPMethod:@"POST"];
-    NSString *contentTypeValue = [NSString stringWithFormat:@"multipart/form-data; boundary=%s", POST_BODY_BOURDARY];
-    [request addValue:contentTypeValue forHTTPHeaderField:@"Content-type"];
-    
-    NSMutableData *dataForm = [NSMutableData alloc];
-    
-    
-    //image
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.9);
-    [dataForm appendData:[[NSString stringWithFormat:@"\r\n--%s\r\n",POST_BODY_BOURDARY] dataUsingEncoding:NSUTF8StringEncoding]];
-    [dataForm appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"uploadFile\"; filename=\"%@.jpg\"\r\n",@"picture"] dataUsingEncoding:NSUTF8StringEncoding]];
-    [dataForm appendData:[[NSString stringWithFormat:@"Content-Type: image/jpeg\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-    [dataForm appendData:[NSData dataWithData:imageData]];
-    [dataForm  appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    
-   
-    //  json
-    [dataForm appendData:[[NSString stringWithFormat:@"--%s\r\n",POST_BODY_BOURDARY] dataUsingEncoding:NSUTF8StringEncoding]];
-    [dataForm appendData:[@"Content-Disposition: form-data; name=\"json\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [dataForm appendData:[@"Content-Type: application/json; charset=UTF-8\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [dataForm appendData:[@"Content-Transfer-Encoding: 8bit\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    [dataForm appendData:[[NSString stringWithFormat:@"%@\r\n", jsonString] dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    
-    // close form
-    [dataForm appendData:[[NSString stringWithFormat:@"--%s--\r\n",POST_BODY_BOURDARY] dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    [request setHTTPBody:dataForm];
-    
-    
-    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession* urlSession = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:(id)self delegateQueue:nil];
-    NSURLSessionUploadTask *uploadTask = [urlSession uploadTaskWithRequest:request fromData:dataForm];
-    [uploadTask resume];
-    
-
-}
 
 
 //카카오톡로그인

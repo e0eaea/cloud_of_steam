@@ -23,8 +23,7 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-- (void) uploadImageLegacy:(UIImage *)image json:(NSString*)jsonString;
-
+- (void)connectToServer:(NSString*)jsonString url:(NSString *)urlString;
 
 - (My_Info *)getMyInfo;
 - (void) saveData:(NSDictionary *)data ;

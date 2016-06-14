@@ -10,6 +10,7 @@
 #import "Photo.h"
 #import "Video.h"
 
+
 @interface CardTableViewCell : UITableViewCell
 
 @property (nonatomic) BOOL is_photo;
